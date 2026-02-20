@@ -1,5 +1,5 @@
 #pragma once
-#include "Curve.h"
+#include "curve.h"
 
 namespace curves {
 
