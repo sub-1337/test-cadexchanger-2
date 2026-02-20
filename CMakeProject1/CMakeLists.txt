@@ -13,9 +13,6 @@ set(BUILD_GAMES    OFF CACHE BOOL "" FORCE)
 # add curves library
 add_subdirectory(curves)
 
-# add viaulization library
-add_subdirectory(visual)
-
 # Create executable
 add_executable(curves_app main.cpp)
 

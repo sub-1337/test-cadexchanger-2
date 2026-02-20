@@ -26,3 +26,15 @@ TEST_CASE("Circle point and derivative correctness", "[circle]")
     REQUIRE(std::abs(d[1] - 5.0 * std::cos(t)) < EPS);
     REQUIRE(d[2] == 0.0);
 }
+
+TEST_CASE("Ellipse point correctness", "[ellipse]")
+{
+    Ellipse e(3.0, 4.0);
+    double t = std::numbers::pi / 6.0;
+
+    auto p = e.getPoint(t);
+
+    REQUIRE(std::abs(p[0] - 3.0 * std::cos(t)) < EPS);
+    REQUIRE(std::abs(p[1] - 4.0 * std::sin(t)) < EPS);
+    REQUIRE(p[2] == 0.0);
+}
