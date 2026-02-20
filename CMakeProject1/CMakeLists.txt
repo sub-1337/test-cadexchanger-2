@@ -14,7 +14,7 @@ add_subdirectory(curves)
 add_executable(curves_app main.cpp)
 
 # Link library
-target_link_libraries(curves_app PRIVATE curves_lib visual_lib)
+target_link_libraries(curves_app PRIVATE curves_lib)
 
 add_subdirectory(tests)
 
