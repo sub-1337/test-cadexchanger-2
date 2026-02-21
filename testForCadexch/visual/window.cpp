@@ -5,6 +5,14 @@
 const int SCREEN_WIDTH = 1200;
 const int SCREEN_HEIGHT = 800;
 
+Color getCurveColor(const std::shared_ptr<Curve>& curve)
+{
+    if (std::dynamic_pointer_cast<Circle>(curve)) return RED;
+    if (std::dynamic_pointer_cast<Ellipse>(curve)) return BLUE;
+    if (std::dynamic_pointer_cast<Helix>(curve)) return GREEN;
+    return BLACK;
+}
+
 void drawCurve(const std::shared_ptr<Curve>& curve, Color color)
 {
     const int segments = 50;
@@ -54,10 +62,11 @@ void openVisualWindow(const std::vector<std::shared_ptr<Curve>>& curvesContainer
         DrawGrid(20, 1.0f);
 
         for (const auto& curve : curvesContainer)
-            drawCurve(curve, RED);
+            drawCurve(curve, getCurveColor(curve));
 
         EndMode3D();
 
+        DrawText("Circle=RED Ellipse=BLUE Helix=GREEN", 10, 10, 20, DARKGRAY);
         DrawText("ESC - exit WASD - move camera ALT + TAB - show console output", 10, 30, 20, DARKGRAY);
 
         EndDrawing();
