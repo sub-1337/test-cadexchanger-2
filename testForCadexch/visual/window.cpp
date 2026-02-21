@@ -58,6 +58,8 @@ void openVisualWindow(const std::vector<std::shared_ptr<Curve>>& curvesContainer
 
         EndMode3D();
 
+        DrawText("ESC - exit WASD - move camera ALT + TAB - show console output", 10, 30, 20, DARKGRAY);
+
         EndDrawing();
     }
     CloseWindow();
