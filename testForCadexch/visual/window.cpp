@@ -1,6 +1,41 @@
 #include "window.h"
+#include "raylib.h"
+
+const int SCREEN_WIDTH = 1200;
+const int SCREEN_HEIGHT = 800;
 
 void openVisualWindow(const std::vector<std::shared_ptr<Curve>>& curvesContainer, std::string log)
 {
 
+    SetTraceLogLevel(LOG_NONE);   // <<< отключаем вывод raylib
+
+    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "3D Curves Visualization");
+    DisableCursor();
+    SetTargetFPS(60);
+
+    Camera3D camera = { 0 };
+    camera.position = { 15.0f, 15.0f, 15.0f };
+    camera.target = { 0.0f, 0.0f, 0.0f };
+    camera.up = { 0.0f, 1.0f, 0.0f };
+    camera.fovy = 45.0f;
+    camera.projection = CAMERA_PERSPECTIVE;
+
+    while (!WindowShouldClose())
+    {
+        UpdateCamera(&camera, CAMERA_FREE);
+
+        BeginDrawing();
+        ClearBackground(RAYWHITE);
+
+        BeginMode3D(camera);
+
+        DrawGrid(20, 1.0f);
+
+        // TODO:
+        // Draw graphic here
+
+        EndMode3D();
+        EndDrawing();
+    }
+    CloseWindow();
 }
