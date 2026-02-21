@@ -12,12 +12,22 @@
 #include "curves/ellipse.h"
 #include "curves/helix.h"
 
+#include "visual/window.h"
+
 using namespace curves;
 
 constexpr double T = std::numbers::pi / 4.0;
+bool showVisualization = true;
 
-int main()
+int main(int argc, char* argv[])
 {
+    if (argc == 2)
+    {
+        std::string arg = argv[1];
+        if (arg == "--no-visual")
+            showVisualization = false;
+	}
+
     constexpr size_t NUM_CURVES = 10;
 
     std::ostringstream oss;
@@ -94,5 +104,9 @@ int main()
 
     // Output to console
     std::cout << oss.str();
-	return 0;
+
+    // Raylib visualization
+    if (showVisualization)
+        openVisualWindow(curvesContainer, oss.str());
+    return 0;
 }
