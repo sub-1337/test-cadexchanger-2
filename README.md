@@ -15,7 +15,16 @@ Test assigment. I added 3d graphic render and tests as a bonus.
 
 ## Building
 Process of building is strightforward use cmake as usual.
-This project rely on cmake auto-fetching libraries.
+This project rely on cmake auto-fetching libraries so
+building process may be slow.
+
+```
+cd testForCadexch
+mkdir out
+cmake -S . -B out
+cd out
+make # Or use VS to build
+```
 
 ## Console parameters
 Use parameter `--no-visual` to disable output of 3d graphic.
