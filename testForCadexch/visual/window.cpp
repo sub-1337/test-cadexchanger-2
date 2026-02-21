@@ -68,6 +68,7 @@ void openVisualWindow(const std::vector<std::shared_ptr<Curve>>& curvesContainer
 
         DrawText("Circle=RED Ellipse=BLUE Helix=GREEN", 10, 10, 20, DARKGRAY);
         DrawText("ESC - exit WASD - move camera ALT + TAB - show console output", 10, 30, 20, DARKGRAY);
+        DrawText(log.c_str(), 10, 60, 10, DARKGRAY);
 
         EndDrawing();
     }
