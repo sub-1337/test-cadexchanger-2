@@ -41,7 +41,6 @@ void openVisualWindow(const std::vector<std::shared_ptr<Curve>>& curvesContainer
 
     InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "3D Curves Visualization");
     DisableCursor();
-    SetTargetFPS(60);
 
     Camera3D camera = { 0 };
     camera.position = { 15.0f, 15.0f, 15.0f };
