@@ -21,6 +21,7 @@ and raylib 3d visualization library
 Process of building is straightforward use cmake as usual.
 This project rely on cmake auto-fetching libraries so
 building process may be slow.
+Build was checked with Visual Studio 2026 (insiders).
 
 ```
 cd testForCadexch
